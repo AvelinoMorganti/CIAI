@@ -7,5 +7,7 @@ import booking.model.Room;
 
 public interface RoomRepository extends CrudRepository<Room, Long> {
 	
+	Room findByName(String name);
+	
 }
 

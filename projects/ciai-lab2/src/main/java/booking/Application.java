@@ -12,8 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import booking.model.Hotel;
 import booking.model.Room;
 import booking.model.RoomType;
+import booking.repository.UserRepository;
 import booking.repository.HotelRepository;
 import booking.repository.RoomTypeRepository;
+import booking.repository.RoomRepository;
 
 
 @SpringBootApplication
@@ -32,7 +34,9 @@ public class Application implements CommandLineRunner {
     }
     
     @Autowired
+    UserRepository users;
     HotelRepository hotels;
+    //RoomRepository rooms;
 
     @Autowired
     RoomTypeRepository roomtypes;
@@ -53,15 +57,17 @@ public class Application implements CommandLineRunner {
     	
     	for(Hotel hotel : myHotels) hotels.save(hotel);
     	
-    	RoomType[] types = {new RoomType(1,"Single"), new RoomType(2,"Double")};
+    	//RoomType[] types = {new RoomType(1,"Single"), new RoomType(2,"Double")};
     	
-    	for(RoomType type:types) roomtypes.save(type);
+    	//for(RoomType type:types) roomtypes.save(type);
     	
     	Hotel marriot = myHotels[0];
-		Room[] roomArray = {new Room(1,12,"121",types[0],marriot), 
+		/*Room[] roomArray = {new Room(1,12,"121",types[0],marriot), 
 							new Room(2,12,"122",types[1],marriot), 
 							new Room(3,13,"131",types[0],marriot), 
 							new Room(4,13,"132",types[1],marriot)};		
+		
+		for(Room room: roomArray){ rooms.save(roomArray);}*/
 		
 		hotels.save(marriot);
     }
