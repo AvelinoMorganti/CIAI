@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Create new user</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+	rel="stylesheet" media="screen" />
+</head>
+<body>
+	<div class="container">
+		<h1>New User</h1>
+
+		<div th:include="users/form :: userform(@{/users/})"></div>
+
+		<p>
+			<a href="/users/new">Add a new user</a>
+		</p>
+		<p>
+			<a href="/users">List all users</a>
+		</p>
+		<p>
+			<b><a href="/">Index</a></b>
+		</p>
+	</div>
+</body>
+</html>
+

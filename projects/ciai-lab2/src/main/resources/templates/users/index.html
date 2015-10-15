@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hotel Users</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+	rel="stylesheet" media="screen" />
+</head>
+<body>
+	<div class="container">
+		<h1>Users List</h1>
+		<ul th:each="user : ${users}">
+			<li><a th:text="${user.name}" th:href="@{|/users/${user.id}|}"></a></li>
+		</ul>
+		<p>
+			<a href="/users/new">new user</a>
+		</p>
+		<p>
+			<b><a href="/">Index</a></b>
+		</p>
+	</div>
+</body>
+</html>
+
