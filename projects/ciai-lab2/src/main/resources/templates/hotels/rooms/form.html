@@ -9,12 +9,13 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Hotel Form</h1>
-		<div th:fragment="hotelform(url)">
+		<h1>Room Form</h1>
+		<div th:fragment="roomform(url)">
 			<form action="#" th:action="${url}" th:object="${hotel}"
 				method="post">
 				<p>
-					<input type="hidden" th:field="*{id}" /> Name: <input type="text"
+					<input type="hidden" th:field="*{id}" /> Floor: <input type="text"
+						th:field="*{floor}" /> Name: <input type="text"
 						th:field="*{name}" />
 				</p>
 				<p>
