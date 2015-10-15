@@ -27,7 +27,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 @Controller
-@RequestMapping(value="/rooms")
+@RequestMapping(value="/hotels/rooms")
 public class RoomController {
 
     @Autowired
