@@ -17,6 +17,7 @@
 		<ul th:each="room : ${rooms}">
 			<li th:text="${room.name}+ '&nbsp;' + ${room.type.description}"></li>
 		</ul>
+		
 
 		<p>
 			<a th:href="@{|/rooms/${room.id}/edit|}">Edit</a>

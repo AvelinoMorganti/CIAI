@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import booking.model.Hotel;
 import booking.repository.HotelRepository;
 import booking.util.HotelNotFoundException;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -50,6 +50,13 @@ public class HotelController {
     public String newHotel(Model model) {
     	model.addAttribute("hotel", new Hotel());
     	return "hotels/create";
+    }
+    
+    // GET  /hotels/delete/{id}			- delete a hotel
+    @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+    public String deleteHotel(@PathVariable("id") long id, Hotel hotel,Model model) {
+    	hotels.delete(hotel);
+    	return "hotels/delete";
     }
     
     // POST /hotels         	- creates a new hotel
@@ -93,6 +100,8 @@ public class HotelController {
     	hotels.save(hotel);
     	return "redirect:/";
     }
+    
+ 
 }
 
 

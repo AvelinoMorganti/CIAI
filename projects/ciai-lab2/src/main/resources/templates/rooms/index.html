@@ -11,7 +11,7 @@
 	<div class="container">
 		<h1>Room List</h1>
 		<ul th:each="room : ${rooms}">
-			<li><a th:text="${room.name}" th:href="@{|/rooms/${room.id}|}"></a></li>
+			<li><a th:text="${room.name}" th:href="@{|/rooms/${room.id}|}">Edit</a></li>
 		</ul>
 		<p>
 			<a href="/rooms/new">new room</a>
