@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Edit room</title>
+<title>Hotels</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link
 	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
@@ -10,16 +10,22 @@
 <body>
 	<div class="container">
 		<h1>
-			Editing Room <span th:text="${room.floor}"></span> - <span th:text="${room.name}"></span>
+			Hotel <span th:text="${hotel.name}"></span>
 		</h1>
 
-		<div th:include="rooms/form :: roomform(@{|/rooms/${room.id}|})"></div>
+		<h2>Rooms</h2>
+		<ul th:each="room : ${rooms}">
+			<li th:text="${room.name}+ '&nbsp;' + ${room.type.description}"></li>
+		</ul>
 
 		<p>
-			<a href="/rooms/new">Add a new room</a>
+			<a th:href="@{|/hotels/${hotel.id}/edit|}">Edit</a>
 		</p>
 		<p>
-			<a href="/rooms">List all rooms</a>
+			<a href="/hotels/new">Add a new hotel</a>
+		</p>
+		<p>
+			<a href="/hotels">List all hotels</a>
 		</p>
 		<p>
 			<b><a href="/">Index</a></b>

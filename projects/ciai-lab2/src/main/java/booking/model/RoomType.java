@@ -21,13 +21,9 @@ public class RoomType {
     private String description;   
 
     @OneToMany(cascade=CascadeType.PERSIST, mappedBy="type")
-    private List<Room> rooms = new ArrayList<Room>();
+    private List<Room> rooms = new ArrayList<>();
  
     public RoomType() {}
-    
-    public RoomType(String description) {
-    	this.description = description;
-    }
     
     public RoomType(long id, String description) {
     	this.id = id;

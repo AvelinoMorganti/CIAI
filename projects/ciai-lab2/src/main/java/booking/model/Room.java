@@ -10,56 +10,52 @@ import javax.persistence.OneToMany;
 @Entity
 public class Room {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
-	private int floor;
-	private String name;   
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private long id;
+    private int floor;
+    private String name;   
 
-	@ManyToOne
-	private RoomType type;
+    @ManyToOne
+    private RoomType type;
+    
+    @ManyToOne
+    private Hotel hotel;
 
-	@ManyToOne
-	private Hotel hotel;
+    public Room() {}
+    
+    public Room(long id, int floor, String name, RoomType type, Hotel hotel) {
+    	this.id = id;
+    	this.floor = floor;
+    	this.name = name;
 
-	public Room() {}
+    	this.hotel = hotel;
+    	hotel.getRooms().add(this);
+    	
+    	this.type = type; 
+    	type.getRooms().add(this);
+    }
 
-	public Room(String name) {
-		this.name = name;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public Room(long id, int floor, String name, RoomType type, Hotel hotel) {
-		this.id = id;
-		this.floor = floor;
-		this.name = name;
+    public void setId(long id) {
+        this.id = id;
+    }
 
-		this.hotel = hotel;
-		hotel.getRooms().add(this);
+    public String getName() {
+        return name;
+    }
 
-		this.type = type; 
-		type.getRooms().add(this);
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return "Id: " + getId() + " Name: " + getName() ;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    @Override
+    public String toString() {
+    	return "Id: " + getId() + " Name: " + getName() ;
+    }
 
 	public int getFloor() {
 		return floor;
