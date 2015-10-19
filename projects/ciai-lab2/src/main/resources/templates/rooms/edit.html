@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit room</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+	rel="stylesheet" media="screen" />
+</head>
+<body>
+	<div class="container">
+		<h1>
+			Editing Room <span th:text="${room.floor}"></span> - <span th:text="${room.name}"></span>
+		</h1>
+
+		<div th:include="rooms/form :: roomform(@{|/rooms/${room.id}|})"></div>
+
+		<p>
+			<a href="/rooms/new">Add a new room</a>
+		</p>
+		<p>
+			<a href="/rooms">List all rooms</a>
+		</p>
+		<p>
+			<b><a href="/">Index</a></b>
+		</p>
+	</div>
+</body>
+</html>
+

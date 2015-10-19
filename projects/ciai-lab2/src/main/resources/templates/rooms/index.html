@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hotel List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+	rel="stylesheet" media="screen" />
+</head>
+<body>
+	<div class="container">
+		<h1>Room List</h1>
+		<ul th:each="room : ${rooms}">
+			<li><a th:text="${room.name}" th:href="@{|/rooms/${room.id}|}">Edit</a></li>
+		</ul>
+		<p>
+			<a href="/rooms/new">new room</a>
+		</p>
+		<p>
+			<b><a href="/">Index</a></b>
+		</p>
+	</div>
+</body>
+</html>
+
